@@ -20,61 +20,64 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TreeViewModel _treeViewModel;
         public MainWindow()
         {
             InitializeComponent();
-            TreeViewItem root = new TreeViewItem();
-            root.Header = "This is the root";
-            tvFilters.Items.Add(root);
-            AddCondition(root, root.Items.Count);
-            TreeViewItem x = new TreeViewItem();
-            x.Header = "This is a test";
-            root.Items.Add(x);
+            _treeViewModel = new TreeViewModel();
+            this.DataContext = _treeViewModel;
+            //TreeViewItem root = new TreeViewItem();
+            //root.Header = "This is the root";
+            //tvFilters.Items.Add(root);
+            //AddCondition(root, root.Items.Count);
+            //TreeViewItem x = new TreeViewItem();
+            //x.Header = "This is a test";
+            //root.Items.Add(x);
         }
 
-        private void AddCondition(TreeViewItem branch, int index)
-        {
-            if (index >= 0)
-            {
-                TreeViewItem tviCondition = new TreeViewItem();
-                tviCondition.Tag = "Condition";
-                ComboBox cmbFields = new ComboBox();
-                ComboBox cmbOperators = new ComboBox();
-                cmbOperators.Margin = new Thickness(5, 0, 5, 0);
-                StackPanel spCondition = new StackPanel();
-                spCondition.Orientation = Orientation.Horizontal;
-                TextBox txtValue1 = new TextBox();
-                txtValue1.Width = 70;
-                Button imgRemove = new Button();
-                imgRemove.Cursor = Cursors.Hand;
-                imgRemove.ToolTip = "Remove";
-                imgRemove.Margin = new Thickness(5, 0, 0, 0);
-                imgRemove.Content = "PRESS THIS BUTTON SISYPHE";
-                imgRemove.VerticalAlignment = VerticalAlignment.Center;
+        //private void AddCondition(TreeViewItem branch, int index)
+        //{
+        //    if (index >= 0)
+        //    {
+        //        TreeViewItem tviCondition = new TreeViewItem();
+        //        tviCondition.Tag = "Condition";
+        //        ComboBox cmbFields = new ComboBox();
+        //        ComboBox cmbOperators = new ComboBox();
+        //        cmbOperators.Margin = new Thickness(5, 0, 5, 0);
+        //        StackPanel spCondition = new StackPanel();
+        //        spCondition.Orientation = Orientation.Horizontal;
+        //        TextBox txtValue1 = new TextBox();
+        //        txtValue1.Width = 70;
+        //        Button imgRemove = new Button();
+        //        imgRemove.Cursor = Cursors.Hand;
+        //        imgRemove.ToolTip = "Remove";
+        //        imgRemove.Margin = new Thickness(5, 0, 0, 0);
+        //        imgRemove.Content = "PRESS THIS BUTTON SISYPHE";
+        //        imgRemove.VerticalAlignment = VerticalAlignment.Center;
 
-                StackPanel spBetween = new StackPanel();
-                spBetween.Orientation = Orientation.Horizontal;
-                Label lblAnd = new Label();
-                lblAnd.Content = " And ";
-                TextBox txtValue2 = new TextBox();
-                txtValue2.Width = 70;
-                spBetween.Children.Add(lblAnd);
-                spBetween.Children.Add(txtValue2);
-                spBetween.Visibility = Visibility.Collapsed;
+        //        StackPanel spBetween = new StackPanel();
+        //        spBetween.Orientation = Orientation.Horizontal;
+        //        Label lblAnd = new Label();
+        //        lblAnd.Content = " And ";
+        //        TextBox txtValue2 = new TextBox();
+        //        txtValue2.Width = 70;
+        //        spBetween.Children.Add(lblAnd);
+        //        spBetween.Children.Add(txtValue2);
+        //        spBetween.Visibility = Visibility.Collapsed;
 
-                spCondition.Children.Add(cmbFields);
-                spCondition.Children.Add(cmbOperators);
-                spCondition.Children.Add(txtValue1);
-                spCondition.Children.Add(spBetween);
-                spCondition.Children.Add(imgRemove);
-                tviCondition.Header = spCondition;
-                branch.Items.Insert(index, tviCondition);
+        //        spCondition.Children.Add(cmbFields);
+        //        spCondition.Children.Add(cmbOperators);
+        //        spCondition.Children.Add(txtValue1);
+        //        spCondition.Children.Add(spBetween);
+        //        spCondition.Children.Add(imgRemove);
+        //        tviCondition.Header = spCondition;
+        //        branch.Items.Insert(index, tviCondition);
 
-                imgRemove.Click+= (s, evnt) =>
-                {
-                    branch.Items.Remove(tviCondition);
-                };
-            }
-        }
+        //        imgRemove.Click+= (s, evnt) =>
+        //        {
+        //            branch.Items.Remove(tviCondition);
+        //        };
+        //    }
+        //}
     }
 }
