@@ -64,61 +64,6 @@
                       StrokeDashArray="1 1"
                       HorizontalAlignment="Center">
             </Line>
-            <!--<Line X1="0" X2="10" 
-                      Fill="Transparent"
-                      RenderOptions.EdgeMode="Aliased"
-                      Stroke="{Binding Source={StaticResource LineBrush}}"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Right"
-                      StrokeDashArray="1 1">
-                <Line.RenderTransform>
-                    <TranslateTransform Y="2" />
-                </Line.RenderTransform>
-            </Line>-->
-
-            <!--<Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=FirstLeafLine}"
-                      Y1="0" Y2="1"
-                      Stretch="Fill"
-                      RenderOptions.EdgeMode="Aliased"
-                      Stroke="#808080"
-                      Margin="{Binding ActualHeight, ElementName=PART_Header, Converter={StaticResource FirstLeafLineMarginConverter}}"
-                      StrokeDashArray="1 1"
-                      VerticalAlignment="Stretch"
-                      HorizontalAlignment="Center">
-            </Line>-->
-            <!--<Line 
-                      Stretch="Fill"
-                      Y1="0"  Y2="1"
-                      RenderOptions.EdgeMode="Aliased"
-                      Grid.RowSpan="2"
-                      Stroke="{Binding Source={StaticResource LineBrush}}"
-                      StrokeDashArray="1 1"
-                      HorizontalAlignment="Center">
-            </Line>-->
-            <!--<Line 
-                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=Line}"
-                      Stretch="Fill"
-                      Y1="0"  Y2="1"
-                      RenderOptions.EdgeMode="Aliased"
-                      Grid.RowSpan="2"
-                      Stroke="{Binding Source={StaticResource LineBrush}}"
-                      StrokeDashArray="1 1"
-                      HorizontalAlignment="Center">
-            </Line>-->
-            <!--<Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=Line}"
-                      Stretch="Fill"
-                      Y1="0"  Y2="1"
-                      RenderOptions.EdgeMode="Aliased"
-                      Grid.RowSpan="2"
-                      Stroke="#808080"
-                      StrokeDashArray="1 1"
-                      HorizontalAlignment="Center">
-                <Line.RenderTransform>
-                    <TranslateTransform Y="{Binding ActualHeight, ElementName=PART_Header, Converter={StaticResource TreeViewItemToLineTranslateTransformFactor}}" />
-                </Line.RenderTransform>
-            </Line>-->
-
-
 
             <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
                 <ToggleButton.Style>

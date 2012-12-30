@@ -30,7 +30,6 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
             _treeViewModel.Nodes.Skip(1).First().Nodes.Remove(_treeViewModel.Nodes.Skip(1).First().Nodes.First());
         }
 
