@@ -26,18 +26,12 @@ namespace WpfApplication1
             InitializeComponent();
             _treeViewModel = new TreeViewModel();
             this.DataContext = _treeViewModel;
-            //TreeViewItem root = new TreeViewItem();
-            //root.Header = "This is the root";
-            //tvFilters.Items.Add(root);
-            //AddCondition(root, root.Items.Count);
-            //TreeViewItem x = new TreeViewItem();
-            //x.Header = "This is a test";
-            //root.Items.Add(x);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _treeViewModel.Nodes.First().Nodes.Remove(_treeViewModel.Nodes.First().Nodes.First());
+            
+            _treeViewModel.Nodes.Skip(1).First().Nodes.Remove(_treeViewModel.Nodes.Skip(1).First().Nodes.First());
         }
 
         //private void AddCondition(TreeViewItem branch, int index)

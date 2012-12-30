@@ -42,48 +42,38 @@ namespace WpfApplication1
         {
             var result = Visibility.Collapsed;
             var treeViewItem = (TreeViewItem)value;
-            ItemsControl itemsControl = ItemsControl.ItemsControlFromItemContainer(treeViewItem);
+            var o = treeViewItem.DataContext;
+            var owningPanel = treeViewItem.FindAncestor<Panel>();
+            if (owningPanel == null)
+                throw new Exception();
             if (((string)parameter) == "UpLine")
             {
-                 return Visibility.Visible;
+                var treeViewItemIndex = owningPanel.Children.IndexOf(treeViewItem);
+                if (treeViewItemIndex == 0)
+                {
+                    // try to find a TreeViewItem ancestor
+                    var parentTreeViewitem = owningPanel.FindAncestor<TreeViewItem>();
+                    if (parentTreeViewitem != null)
+                    {
+                        return Visibility.Visible;
+                    }
+                    else
+                    {
+                        return Visibility.Collapsed;
+                    }
+                }
+                return Visibility.Visible;
             }
 
             if (((string)parameter) == "DownLine")
             {
-                if( itemsControl.ItemContainerGenerator.IndexFromContainer(treeViewItem) != itemsControl.Items.Count - 1)
+                if (owningPanel == null)
+                    return Visibility.Collapsed;
+                if (owningPanel.Children.IndexOf(treeViewItem) != owningPanel.Children.Count - 1)
                     return Visibility.Visible;
+                return Visibility.Collapsed;
             }
-            if (((string)parameter) == "Line")
-            {
-                var owningPanel = treeViewItem.FindAncestor<Panel>();
-                if (owningPanel != null)
-                {
-                    var treeViewItemIndex = owningPanel.Children.IndexOf(treeViewItem);
-                    if (treeViewItemIndex < owningPanel.Children.Count - 1)
-                    {
-                        result = Visibility.Visible;
-                    }
-                }
-            }
-            else if (((string)parameter) == "FirstLeafLine")
-            {
-                var owningPanel = treeViewItem.FindAncestor<Panel>();
-                if (owningPanel != null)
-                {
-                    var treeViewItemIndex = owningPanel.Children.IndexOf(treeViewItem);
-                    if (treeViewItemIndex == 0)
-                    {
-                        // try to find a TreeViewItem ancestor
-                        var parentTreeViewitem = owningPanel.FindAncestor<TreeViewItem>();
-                        if (parentTreeViewitem != null)
-                        {
-                            result = Visibility.Visible;
-                        }
-                    }
-                }
-            }
-
-            return result;
+            throw new ArgumentException("parameter");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

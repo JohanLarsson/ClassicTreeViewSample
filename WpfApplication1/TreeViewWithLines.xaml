@@ -18,7 +18,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*" />
@@ -56,6 +55,15 @@
                       HorizontalAlignment="Center">
                 </Line>
             </Grid>
+            <Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=DownLine}"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Y1="0"  Y2="1"
+                      RenderOptions.EdgeMode="Aliased"
+                      Stroke="{Binding Source={StaticResource LineBrush}}"
+                      StrokeDashArray="1 1"
+                      HorizontalAlignment="Center">
+            </Line>
             <!--<Line X1="0" X2="10" 
                       Fill="Transparent"
                       RenderOptions.EdgeMode="Aliased"
