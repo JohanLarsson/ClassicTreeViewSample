@@ -17,7 +17,11 @@
             <Setter Property="IsExpanded" Value="true"/>
         </Style>
     </Window.Resources>
-    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="Add"/>
+            <Button Content="Remove" Click="Button_Click" />
+        </StackPanel>
         <TreeView Name="tvFilters" ItemsSource="{Binding Root}" >
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Nodes}">
@@ -25,5 +29,5 @@
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-    </ScrollViewer>
+    </DockPanel>
 </Window>

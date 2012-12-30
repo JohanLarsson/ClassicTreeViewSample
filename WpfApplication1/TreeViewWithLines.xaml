@@ -18,13 +18,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50*" />
-                    <ColumnDefinition Width="50*" />
-                </Grid.ColumnDefinitions>
-                <Rectangle x:Name="HorLn" Height="1" Stroke="{Binding Source={StaticResource LineBrush}}" StrokeDashArray="1 1" SnapsToDevicePixels="true" Grid.Column="1"/>
-            </Grid>
+            <!--
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -32,19 +26,33 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <Rectangle x:Name="VerLn" Width="1" Stroke="{Binding Source={StaticResource LineBrush}}" StrokeDashArray="1 1" Grid.Row="0" SnapsToDevicePixels="true"/>
+            </Grid>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <Line X1="0" X2="1" Grid.Column="1"
+                          Fill="Transparent"
+                          RenderOptions.EdgeMode="Aliased"
+                          Stroke="{Binding Source={StaticResource LineBrush}}"
+                          VerticalAlignment="Center"
+                          Stretch="Fill"
+                          StrokeDashArray="1 1">
+                </Line>
             </Grid>
             
              <!--<Line X1="0" X2="10" 
                       Fill="Transparent"
                       RenderOptions.EdgeMode="Aliased"
-                      Stroke="#808080"
+                      Stroke="{Binding Source={StaticResource LineBrush}}"
                       VerticalAlignment="Center"
                       HorizontalAlignment="Right"
                       StrokeDashArray="1 1">
                 <Line.RenderTransform>
                     <TranslateTransform Y="2" />
                 </Line.RenderTransform>
-            </Line>
+            </Line>-->
 
             <Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=Line}"
                       Stretch="Fill"
@@ -68,7 +76,7 @@
                       StrokeDashArray="1 1"
                       VerticalAlignment="Stretch"
                       HorizontalAlignment="Center">
-            </Line>-->
+            </Line>
 
             <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
                 <ToggleButton.Style>

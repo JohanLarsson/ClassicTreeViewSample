@@ -35,6 +35,11 @@ namespace WpfApplication1
             //root.Items.Add(x);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _treeViewModel.Root.First().Nodes.Remove(_treeViewModel.Root.First().Nodes.First());
+        }
+
         //private void AddCondition(TreeViewItem branch, int index)
         //{
         //    if (index >= 0)
