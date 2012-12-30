@@ -5,8 +5,7 @@
     <ControlTemplate x:Key="TreeViewWithLines" TargetType="TreeViewItem">
         <ControlTemplate.Resources>
             <y:LineVisibilityConverter x:Key="LineVisibilityConverter" />
-            <y:FirstLeafLineMarginConverter x:Key="FirstLeafLineMarginConverter" />
-            <y:TreeViewItemToLineTranslateTransformFactor x:Key="TreeViewItemToLineTranslateTransformFactor" />
+
         </ControlTemplate.Resources>
         <Grid>
             <Grid.ColumnDefinitions>
