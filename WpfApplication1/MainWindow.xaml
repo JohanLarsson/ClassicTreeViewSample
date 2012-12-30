@@ -22,7 +22,7 @@
             <Button Content="Add"/>
             <Button Content="Remove" Click="Button_Click" />
         </StackPanel>
-        <TreeView Name="tvFilters" ItemsSource="{Binding Root}" >
+        <TreeView ItemsSource="{Binding Nodes}" >
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Nodes}">
                     <TextBlock Text="{Binding Text}"/>

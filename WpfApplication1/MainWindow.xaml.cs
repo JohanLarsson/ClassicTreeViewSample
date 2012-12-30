@@ -37,7 +37,7 @@ namespace WpfApplication1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _treeViewModel.Root.First().Nodes.Remove(_treeViewModel.Root.First().Nodes.First());
+            _treeViewModel.Nodes.First().Nodes.Remove(_treeViewModel.Nodes.First().Nodes.First());
         }
 
         //private void AddCondition(TreeViewItem branch, int index)
