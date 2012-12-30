@@ -18,7 +18,7 @@ namespace WpfApplication1
             var item4 = new TreeViewItemViewModel { Text = "Item4" };
             item2.Nodes.Add(item2_1);
             item2_1.Nodes.Add(item2_1_1);
-            Nodes = new ObservableCollection<TreeViewItemViewModel>(new[] { item1, item2,item3 ,item4});
+            Nodes = new ObservableCollection<TreeViewItemViewModel>(new[] { item1, item2, item3, item4 });
         }
         public ObservableCollection<TreeViewItemViewModel> Nodes { get; private set; }
     }

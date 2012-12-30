@@ -41,13 +41,18 @@ namespace WpfApplication1
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             var result = Visibility.Collapsed;
-
-            var treeViewItem = value as TreeViewItem;
-            if (treeViewItem == null)
+            var treeViewItem = (TreeViewItem)value;
+            ItemsControl itemsControl = ItemsControl.ItemsControlFromItemContainer(treeViewItem);
+            if (((string)parameter) == "UpLine")
             {
-                throw new ArgumentException("value");
+                 return Visibility.Visible;
             }
 
+            if (((string)parameter) == "DownLine")
+            {
+                if( itemsControl.ItemContainerGenerator.IndexFromContainer(treeViewItem) != itemsControl.Items.Count - 1)
+                    return Visibility.Visible;
+            }
             if (((string)parameter) == "Line")
             {
                 var owningPanel = treeViewItem.FindAncestor<Panel>();

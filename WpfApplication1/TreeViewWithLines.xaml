@@ -33,7 +33,29 @@
                           StrokeDashArray="1 1">
                 </Line>
             </Grid>
-
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="50*"/>
+                </Grid.RowDefinitions>
+                <Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=UpLine}"
+                      Stretch="Fill"
+                      Y1="0"  Y2="1"
+                      RenderOptions.EdgeMode="Aliased"
+                      Stroke="{Binding Source={StaticResource LineBrush}}"
+                      StrokeDashArray="1 1"
+                      HorizontalAlignment="Center">
+                </Line>
+                <Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=DownLine}"
+                      Grid.Row="1"
+                      Stretch="Fill"
+                      Y1="0"  Y2="1"
+                      RenderOptions.EdgeMode="Aliased"
+                      Stroke="{Binding Source={StaticResource LineBrush}}"
+                      StrokeDashArray="1 1"
+                      HorizontalAlignment="Center">
+                </Line>
+            </Grid>
             <!--<Line X1="0" X2="10" 
                       Fill="Transparent"
                       RenderOptions.EdgeMode="Aliased"
@@ -45,21 +67,7 @@
                     <TranslateTransform Y="2" />
                 </Line.RenderTransform>
             </Line>-->
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                </Grid.RowDefinitions>
-                <Line 
-                      Stretch="Fill"
-                      Y1="0"  Y2="1"
-                      RenderOptions.EdgeMode="Aliased"
-                      Stroke="{Binding Source={StaticResource LineBrush}}"
-                      StrokeDashArray="1 1"
-                      HorizontalAlignment="Center">
-                </Line>
-                <!--<Rectangle x:Name="VerLn" Width="1" Stroke="{Binding Source={StaticResource LineBrush}}" StrokeDashArray="1 1" Grid.Row="0" SnapsToDevicePixels="true"/>-->
-            </Grid>
+
             <!--<Line Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource LineVisibilityConverter}, ConverterParameter=FirstLeafLine}"
                       Y1="0" Y2="1"
                       Stretch="Fill"

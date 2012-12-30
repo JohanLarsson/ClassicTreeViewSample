@@ -13,7 +13,6 @@
         </Style>
         <Style TargetType="TreeViewItem">
             <Setter Property="Template" Value="{StaticResource TreeViewWithLines}"/>
-            <Setter Property="Padding" Value="0,5,0,5"/>
             <Setter Property="IsExpanded" Value="true"/>
         </Style>
     </Window.Resources>
